@@ -1,0 +1,63 @@
+{
+    "name": "mic-processor-pro",
+    "version": "1.0.0",
+    "description": "Professional Microphone Audio Processor with VST and RNNoise support",
+    "main": "main.js",
+    "author": "Your Name",
+    "license": "MIT",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "electron": "electron .",
+        "start": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+        "dist": "npm run build && electron-builder --win",
+        "dist:portable": "npm run build && electron-builder --win portable"
+    },
+    "build": {
+        "appId": "com.micprocessor.pro",
+        "productName": "Mic Processor Pro",
+        "directories": {
+            "output": "release"
+        },
+        "files": [
+            "dist/**/*",
+            "main.js",
+            "preload.js",
+            "node_modules/@timephy/**/*"
+        ],
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ]
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true
+        },
+        "portable": {
+            "artifactName": "MicProcessorPro-Portable.exe"
+        }
+    },
+    "dependencies": {
+        "@timephy/rnnoise-wasm": "^1.0.0",
+        "auto-launch": "^5.0.6",
+        "lucide-react": "^0.556.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "rnnoise-wasm": "^0.0.1-security",
+        "soundtouchjs": "^0.2.1"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.2.1",
+        "concurrently": "^8.2.2",
+        "electron": "^28.0.0",
+        "electron-builder": "^26.0.12",
+        "vite": "^5.0.0",
+        "wait-on": "^7.2.0"
+    }
+}
