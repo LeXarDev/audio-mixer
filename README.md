@@ -5,6 +5,8 @@ A professional real-time microphone audio processor built with Electron, React, 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)
 
+![Mic Processor Pro Screenshot](screenshot.png)
+
 ## ✨ Features
 
 ### Audio Processing
